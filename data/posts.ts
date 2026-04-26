@@ -1,3 +1,4 @@
+// Last content update: 2026-04-26 04:32
 export const posts = [
   {
     slug: 'pourquoi-starlink-change-tout-en-afrique',
