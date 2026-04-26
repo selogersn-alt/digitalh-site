@@ -3,7 +3,7 @@
 import React, { use } from 'react'
 import { services } from '@/data/services'
 import { motion } from 'framer-motion'
-import { CheckCircle2, ArrowLeft, MessageSquare, Rocket, Shield, HeartHandshake, Headphones, ArrowRight, BarChart, Globe } from 'lucide-react'
+import { CheckCircle2, ArrowLeft, MessageSquare, Rocket, Shield, HeartHandshake, Headphones, ArrowRight, LineChart, Globe } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
@@ -145,7 +145,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
                     <p className="text-xs text-gray-400">Solutions optimisées pour une vitesse et une efficacité records.</p>
                   </div>
                   <div className="p-6 bg-white/5 rounded-2xl border border-white/5">
-                    <BarChart className="text-blue-500 mb-4" size={24} />
+                    <LineChart className="text-blue-500 mb-4" size={24} />
                     <p className="font-bold mb-2">ROI Garanti</p>
                     <p className="text-xs text-gray-400">Des stratégies conçues pour générer de la croissance réelle.</p>
                   </div>
