@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "DigitalH | Agence Marketing Digital & Services IT Premium",
+  title: "DigitalH - Version 1.0.2",
   description: "Expertise IT & Marketing Digital à Lomé (Togo) et Dakar (Sénégal). Starlink, VSAT, Développement d'applications et SEO international.",
   openGraph: {
     title: "DigitalH | Agence Marketing Digital & Services IT",
