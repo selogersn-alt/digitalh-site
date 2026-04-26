@@ -3,7 +3,7 @@
 import React, { use } from 'react'
 import { services } from '@/data/services'
 import { motion } from 'framer-motion'
-import { CheckCircle2, ArrowLeft, MessageSquare, Rocket, Shield, HeartHandshake, Headphones, ArrowRight } from 'lucide-react'
+import { CheckCircle2, ArrowLeft, MessageSquare, Rocket, Shield, HeartHandshake, Headphones, ArrowRight, BarChart, Globe } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
