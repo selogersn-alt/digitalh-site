@@ -52,7 +52,7 @@ export default function Footer() {
       </div>
 
       <div className="container mx-auto px-6 pt-10 border-t border-white/5 text-center text-xs text-muted">
-        <p>© {new Date().getFullYear()} DigitalH. Tous droits réservés.</p>
+        <p>© 2022-2026 DigitalH. Tous droits réservés.</p>
       </div>
     </footer>
   )
