@@ -1,4 +1,4 @@
-import { Globe, Smartphone, BarChart, Cpu, Layout, Image, Briefcase, Zap, Satellite, Wifi, Palette, Rocket, Shield, HeartHandshake, Headphones } from 'lucide-react'
+import { Globe, Smartphone, LineChart, Cpu, Layout, Image, Briefcase, Zap, Satellite, Wifi, Palette, Rocket, Shield, HeartHandshake, Headphones } from 'lucide-react'
 
 export const services = [
   {
@@ -52,7 +52,7 @@ export const services = [
   {
     slug: 'seo',
     title: 'SEO & Croissance Organique',
-    icon: BarChart,
+    icon: LineChart,
     shortDesc: 'Dominez les premiers résultats de recherche et attirez du trafic qualifié sans payer de pub.',
     fullDesc: 'Le SEO n’est pas une option, c’est une nécessité de survie digitale. Notre approche du référencement naturel est scientifique et axée sur les données. Nous ne nous arrêtons pas aux balises méta : nous optimisons la structure technique de votre site, la sémantique de vos contenus et votre autorité globale sur le web (netlinking). Notre objectif est de positionner votre entreprise devant vos concurrents sur les mots-clés les plus rentables de votre secteur. À long terme, c’est le canal de vente le plus puissant et le plus rentable de votre stratégie marketing.',
     qualityDesc: 'Nous fournissons des rapports transparents chaque mois pour suivre vos positions et ajuster la stratégie en fonction de l’évolution des algorithmes de Google.',

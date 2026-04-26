@@ -1,14 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Globe, Smartphone, BarChart, Cpu, ShieldCheck } from 'lucide-react'
+import { ArrowRight, Globe, Smartphone, LineChart, Cpu, ShieldCheck } from 'lucide-react'
 import Link from 'next/link'
 import Portfolio from '@/components/Portfolio'
 
 const services = [
   { icon: Globe, title: 'Création Web', desc: 'Sites vitrines & E-commerce haut de gamme.' },
   { icon: Smartphone, title: 'App Mobile', desc: 'Applications Android & iOS natives.' },
-  { icon: BarChart, title: 'SEO & Marketing', desc: 'Dominez les résultats de recherche.' },
+  { icon: LineChart, title: 'SEO & Marketing', desc: 'Dominez les résultats de recherche.' },
   { icon: Cpu, title: 'IT & Infrastructure', desc: 'Starlink, VSAT et Solutions Réseaux.' },
 ]
 

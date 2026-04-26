@@ -42,7 +42,7 @@ export default buildConfig({
         { name: 'title', type: 'text', required: true },
         { name: 'slug', type: 'text', required: true, unique: true },
         { name: 'description', type: 'textarea' },
-        { name: 'icon', type: 'text', admin: { description: 'Lucide icon name (ex: Globe, Smartphone, BarChart)' } },
+        { name: 'icon', type: 'text', admin: { description: 'Lucide icon name (ex: Globe, Smartphone, LineChart)' } },
         { name: 'content', type: 'richText', required: true },
         { name: 'featuredImage', type: 'upload', relationTo: 'media' },
       ],
