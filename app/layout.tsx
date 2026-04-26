@@ -15,22 +15,17 @@ export const metadata: Metadata = {
     description: "Expertise IT & Marketing Digital à Lomé (Togo) et Dakar (Sénégal).",
     url: "https://digitalh.net",
     siteName: "DigitalH",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-      },
-    ],
     locale: "fr_FR",
     type: "website",
   },
-  icons: {
-    icon: "/icon.png",
-    apple: "/icon.png",
+  twitter: {
+    card: "summary_large_image",
+    title: "DigitalH | Agence Marketing Digital & Services IT",
+    description: "Expertise IT & Marketing Digital à Lomé (Togo) et Dakar (Sénégal).",
   },
 };
 
+// v1.0.4 - Force fresh deployment for brand assets
 export default function RootLayout({
   children,
 }: Readonly<{
