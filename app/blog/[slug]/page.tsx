@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 export default function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params)
@@ -15,9 +16,13 @@ export default function PostPage({ params }: { params: Promise<{ slug: string }>
     notFound()
   }
 
+  // Split content by paragraphs (double newlines)
+  const paragraphs = post.content.split('\n\n')
+
   return (
     <main className="min-h-screen pt-32 pb-20 bg-[#050505]">
       <div className="container mx-auto px-6 max-w-4xl relative z-10">
+        <Breadcrumbs />
         <Link href="/blog" className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-12 group">
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" /> Retour au blog
         </Link>
@@ -47,28 +52,21 @@ export default function PostPage({ params }: { params: Promise<{ slug: string }>
               {post.excerpt}
             </p>
             <div className="text-lg text-gray-400 leading-relaxed space-y-8">
-              <p>
-                {post.content}
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <h2 className="text-3xl font-bold text-white mt-12 mb-6">Le futur de la technologie chez DigitalH</h2>
-              <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
+              {paragraphs.map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
             </div>
           </article>
 
           {/* Call to Action */}
           <div className="mt-20 p-12 bg-white/5 backdrop-blur-xl rounded-[40px] border border-white/10 text-center relative overflow-hidden group">
              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 blur-3xl -z-10" />
-            <h3 className="text-3xl font-bold mb-4 text-white">Prêt à propulser votre business ?</h3>
+            <h3 className="text-3xl font-bold mb-4 text-white">Besoin d'expertise pour votre projet ?</h3>
             <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-              Nos experts sont prêts à vous accompagner. Discutons de vos besoins dès aujourd'hui.
+              Que ce soit pour du SEO, de l'infrastructure Starlink ou du développement sur mesure, nos experts vous accompagnent.
             </p>
-            <Link href="/contact" className="inline-flex px-10 py-5 bg-blue-600 text-white rounded-full font-bold shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:scale-105 transition-all">
-              Discuter avec un expert
+            <Link href="/contact" className="inline-flex px-12 py-5 bg-blue-600 text-white rounded-full font-bold shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:scale-105 transition-all">
+              Prendre rendez-vous <ArrowLeft className="rotate-180 ml-2" size={20} />
             </Link>
           </div>
         </motion.div>
