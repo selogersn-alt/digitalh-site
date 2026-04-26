@@ -13,6 +13,16 @@ const imageMapping: Record<string, string> = {
   'seo': '/seo_growth_hero_1777166007850.png',
   'intelligence-artificielle': '/ai_intelligence_hero_1777169156308.png',
   'automatisation': '/automation_process_hero_1777169174868.png',
+  'applications-mobiles': '/mobile_app_hero_1777175561559.png',
+  'saas-immobilier': '/saas_realestate_hero_1777175578194.png',
+  'sea': '/sea_ads_hero_1777175592088.png',
+  'antennes-vsat': '/vsat_satellite_hero_1777175607207.png',
+  'gestion-reseaux-sociaux': '/social_media_hero_1777175623563.png',
+  'creation-logo': '/logo_design_hero_1777175637864.png',
+  'site-wordpress': '/wordpress_design_hero_1777175653597.png',
+  'application-web': '/web_app_hero_full_1777175667208.png',
+  'logiciel-portefeuille': '/portfolio_mgmt_hero_1777175683302.png',
+  'affiches-publicitaires': '/poster_design_hero_1777175696418.png',
 }
 
 export default function ServicesPage() {

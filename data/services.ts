@@ -20,7 +20,7 @@ export const services = [
     imagePrompt: 'Starlink satellite dish installation on a modern building roof, futuristic technology, clear sky, cinematic lighting'
   },
   {
-    slug: 'application-mobile',
+    slug: 'applications-mobiles',
     title: 'Application Mobile Android',
     icon: Smartphone,
     shortDesc: 'Des apps intuitives et puissantes pour toucher vos clients sur mobile.',

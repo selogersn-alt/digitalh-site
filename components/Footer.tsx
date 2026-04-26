@@ -24,10 +24,10 @@ export default function Footer() {
         <div>
           <h4 className="text-lg font-bold mb-6">Services</h4>
           <ul className="space-y-4 text-sm text-muted">
-            <li><Link href="/services/web" className="hover:text-primary transition-colors">Création Site Web</Link></li>
-            <li><Link href="/services/mobile" className="hover:text-primary transition-colors">Applications Mobiles</Link></li>
+            <li><Link href="/services/creation-site-web" className="hover:text-primary transition-colors">Création Site Web</Link></li>
+            <li><Link href="/services/applications-mobiles" className="hover:text-primary transition-colors">Applications Mobiles</Link></li>
             <li><Link href="/services/seo" className="hover:text-primary transition-colors">SEO & Marketing</Link></li>
-            <li><Link href="/services/starlink" className="hover:text-primary transition-colors">Installation Starlink</Link></li>
+            <li><Link href="/services/installation-starlink" className="hover:text-primary transition-colors">Installation Starlink</Link></li>
           </ul>
         </div>
 

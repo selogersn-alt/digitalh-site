@@ -4,7 +4,6 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-console.log('Payload config is being loaded...')
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -21,7 +20,16 @@ export default buildConfig({
       auth: true,
       access: {
         delete: () => false,
-        update: () => true,
+        update: ({ req: { user } }) => {
+          if (user?.collection === 'users') {
+            return {
+              id: {
+                equals: user.id,
+              },
+            }
+          }
+          return false
+        },
       },
       fields: [],
     },
