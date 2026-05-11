@@ -1,13 +1,22 @@
 import Link from 'next/link'
 import { Globe, Smartphone, Cpu, Mail, Phone, MapPin, Link as LinkIcon } from 'lucide-react'
 
+import Image from 'next/image'
+
 export default function Footer() {
   return (
     <footer className="bg-black border-t border-white/5 pt-20 pb-10">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
         <div>
-          <Link href="/" className="text-2xl font-black tracking-tighter flex items-center gap-2 mb-6">
-            <span className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white text-lg italic">H</span>
+          <Link href="/" className="text-2xl font-black tracking-tighter flex items-center gap-3 mb-6">
+            <div className="relative w-8 h-8 overflow-hidden rounded-lg border border-white/10">
+              <Image 
+                src="/logo_h.png" 
+                alt="DigitalH Logo" 
+                fill 
+                className="object-cover"
+              />
+            </div>
             DIGITAL<span className="text-primary">H</span>
           </Link>
           <p className="text-muted text-sm leading-relaxed mb-6">

@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
+import Image from 'next/image'
+
 const navLinks = [
   { name: 'Accueil', href: '/' },
   { name: 'À propos', href: '/about' },
@@ -26,9 +28,16 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'glass py-4' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-black tracking-tighter flex items-center gap-2">
-          <span className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white text-lg italic">H</span>
-          DIGITAL<span className="text-primary">H</span>
+        <Link href="/" className="text-2xl font-black tracking-tighter flex items-center gap-3">
+          <div className="relative w-10 h-10 overflow-hidden rounded-xl border border-white/10 glow">
+            <Image 
+              src="/logo_h.png" 
+              alt="DigitalH Logo" 
+              fill 
+              className="object-cover"
+            />
+          </div>
+          <span className="hidden sm:inline">DIGITAL<span className="text-primary">H</span></span>
         </Link>
 
         {/* Desktop Nav */}

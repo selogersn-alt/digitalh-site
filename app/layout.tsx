@@ -8,15 +8,15 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "DigitalH | Agence Marketing Digital & Services IT Premium",
-  description: "Expertise IT & Marketing Digital à Lomé (Togo) et Dakar (Sénégal). Starlink, VSAT, Développement d'applications et SEO international.",
+  title: "DigitalH | Créativité & Excellence IT pour vos Projets",
+  description: "Propulsez votre entreprise avec DigitalH. Expertise en développement Web/Mobile, SEO international et solutions Starlink. L'innovation qui apporte du succès.",
   metadataBase: new URL("https://digitalh.net"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "DigitalH | Agence Marketing Digital & Services IT",
-    description: "Expertise IT & Marketing Digital à Lomé (Togo) et Dakar (Sénégal).",
+    title: "DigitalH | Votre Partenaire Digital de Confiance",
+    description: "Solutions IT innovantes et Marketing Digital haute performance au Togo, Sénégal et à l'International.",
     url: "https://digitalh.net",
     siteName: "DigitalH",
     images: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "DigitalH | Agence Marketing Digital & Services IT",
+        alt: "DigitalH | Expertise IT & Marketing",
       },
     ],
     locale: "fr_FR",
@@ -32,17 +32,17 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icon.png" },
-      { url: "/icon.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo_h.png" },
+      { url: "/logo_h.png", sizes: "32x32", type: "image/png" },
     ],
     apple: [
-      { url: "/icon.png" },
+      { url: "/logo_h.png" },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "DigitalH | Agence Marketing Digital & Services IT",
-    description: "Expertise IT & Marketing Digital à Lomé (Togo) et Dakar (Sénégal).",
+    title: "DigitalH | L'excellence Digitale à votre portée",
+    description: "Expertise IT & Marketing Digital de pointe.",
     images: ["/og-image.png"],
   },
 };

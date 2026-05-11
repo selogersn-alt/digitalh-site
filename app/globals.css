@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #050505;
+  --color-background: #09090b;
   --color-foreground: #ffffff;
-  --color-primary: #0070f3;
-  --color-secondary: #7928ca;
-  --color-accent: #00d2ff;
-  --color-muted: #a1a1a1;
-  --color-border: #333333;
+  --color-primary: #ff5c00;
+  --color-secondary: #ffb800;
+  --color-accent: #8b5cf6;
+  --color-muted: #a1a1aa;
+  --color-border: #27272a;
 }
 
 :root {
-  --background: #050505;
+  --background: #09090b;
   --foreground: #ffffff;
-  --primary: #0070f3;
-  --secondary: #7928ca;
-  --accent: #00d2ff;
-  --muted: #a1a1a1;
-  --border: #333333;
+  --primary: #ff5c00;
+  --secondary: #ffb800;
+  --accent: #8b5cf6;
+  --muted: #a1a1aa;
+  --border: #27272a;
 }
 
 body {
@@ -35,13 +35,13 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(to right, #00d2ff, #7928ca);
+  background: linear-gradient(to right, #ff5c00, #ffb800);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .glow {
-  box-shadow: 0 0 20px rgba(0, 112, 243, 0.3);
+  box-shadow: 0 0 20px rgba(255, 92, 0, 0.3);
 }
 
 /* Smooth Transitions */
