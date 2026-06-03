@@ -21,14 +21,20 @@ export const metadata: Metadata = {
     siteName: "DigitalH",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
+        url: "https://digitalh.net/logo_h.png",
+        width: 1024,
+        height: 1024,
         alt: "DigitalH | Expertise IT & Marketing",
       },
     ],
     locale: "fr_FR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DigitalH | L'excellence Digitale à votre portée",
+    description: "Expertise IT & Marketing Digital de pointe.",
+    images: ["https://digitalh.net/logo_h.png"],
   },
   icons: {
     icon: [
@@ -38,12 +44,6 @@ export const metadata: Metadata = {
     apple: [
       { url: "/logo_h.png" },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "DigitalH | L'excellence Digitale à votre portée",
-    description: "Expertise IT & Marketing Digital de pointe.",
-    images: ["/og-image.png"],
   },
 };
 
@@ -62,6 +62,19 @@ export default function RootLayout({
         </main>
         {/* v1.0.1-final */}
         <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "DigitalH",
+              "url": "https://digitalh.net",
+              "logo": "https://digitalh.net/logo_h.png",
+              "description": "Expertise IT & Marketing Digital de pointe au Togo, Sénégal et à l'International."
+            })
+          }}
+        />
       </body>
     </html>
   );

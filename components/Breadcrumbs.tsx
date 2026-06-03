@@ -25,7 +25,7 @@ export default function Breadcrumbs() {
           <div key={path} className="flex items-center gap-2">
             <ChevronRight size={14} className="opacity-50" />
             {isLast ? (
-              <span className="text-white">{label}</span>
+              <span className="text-foreground">{label}</span>
             ) : (
               <Link href={href} className="hover:text-primary transition-colors">
                 {label}

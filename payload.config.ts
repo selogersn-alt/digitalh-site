@@ -41,8 +41,24 @@ export default buildConfig({
       fields: [
         { name: 'title', type: 'text', required: true },
         { name: 'slug', type: 'text', required: true, unique: true },
-        { name: 'description', type: 'textarea' },
+        { name: 'shortDesc', type: 'textarea', required: true },
         { name: 'icon', type: 'text', admin: { description: 'Lucide icon name (ex: Globe, Smartphone, LineChart)' } },
+        { name: 'content', type: 'richText', required: true },
+        { name: 'featuredImage', type: 'upload', relationTo: 'media' },
+      ],
+    },
+    {
+      slug: 'posts',
+      admin: {
+        useAsTitle: 'title',
+      },
+      fields: [
+        { name: 'title', type: 'text', required: true },
+        { name: 'slug', type: 'text', required: true, unique: true },
+        { name: 'category', type: 'select', options: ['Technologie', 'Marketing', 'Design', 'Business'] },
+        { name: 'date', type: 'date', required: true },
+        { name: 'author', type: 'text' },
+        { name: 'excerpt', type: 'textarea' },
         { name: 'content', type: 'richText', required: true },
         { name: 'featuredImage', type: 'upload', relationTo: 'media' },
       ],
@@ -52,6 +68,29 @@ export default buildConfig({
       upload: true,
       fields: [
         { name: 'alt', type: 'text' },
+      ],
+    },
+    {
+      slug: 'leads',
+      admin: {
+        useAsTitle: 'name',
+        description: 'Demandes de contact reçues depuis le site web',
+      },
+      fields: [
+        { name: 'name', type: 'text', required: true, label: 'Nom Complet' },
+        { name: 'email', type: 'email', required: true, label: 'Email' },
+        { name: 'service', type: 'text', label: 'Service Souhaité' },
+        { name: 'message', type: 'textarea', required: true, label: 'Message' },
+        { 
+          name: 'status', 
+          type: 'select', 
+          defaultValue: 'nouveau',
+          options: [
+            { label: 'Nouveau', value: 'nouveau' },
+            { label: 'Contacté', value: 'contacte' },
+            { label: 'Clos', value: 'clos' }
+          ]
+        },
       ],
     },
   ],

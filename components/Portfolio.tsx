@@ -30,7 +30,7 @@ export default function Portfolio() {
     <section className="py-32 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mb-20">
-          <h2 className="text-4xl md:text-6xl font-black mb-6">Nos Réalisations <span className="text-primary">Immobilier</span></h2>
+          <h2 className="text-4xl md:text-6xl font-black mb-6 text-foreground">Nos Réalisations <span className="text-primary">Immobilier</span></h2>
           <p className="text-xl text-muted leading-relaxed">
             Découvrez comment DigitalH révolutionne le secteur immobilier avec des plateformes sur mesure, performantes et centrées sur l'expérience utilisateur.
           </p>
@@ -44,17 +44,17 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="glass rounded-[40px] overflow-hidden group hover:glow transition-all"
+              className="glass rounded-[40px] overflow-hidden group transition-all shadow-sm hover:shadow-xl border border-border hover:border-primary/50"
             >
-              <div className="h-64 relative bg-white/5 overflow-hidden">
+              <div className="h-64 relative bg-muted/10 overflow-hidden">
                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20" />
                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Home size={80} className="text-white/10 group-hover:scale-110 transition-transform duration-700" />
+                    <Home size={80} className="text-foreground/10 group-hover:scale-110 transition-transform duration-700" />
                  </div>
               </div>
 
               <div className="p-10">
-                <h3 className="text-2xl font-bold mb-4">{project.name}</h3>
+                <h3 className="text-2xl font-bold mb-4 text-foreground">{project.name}</h3>
                 <p className="text-muted mb-8 leading-relaxed">
                   {project.desc}
                 </p>

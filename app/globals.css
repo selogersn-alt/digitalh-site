@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #09090b;
-  --color-foreground: #ffffff;
+  --color-background: #f8fafc;
+  --color-foreground: #0f172a;
   --color-primary: #ff5c00;
   --color-secondary: #ffb800;
   --color-accent: #8b5cf6;
-  --color-muted: #a1a1aa;
-  --color-border: #27272a;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
 }
 
 :root {
-  --background: #09090b;
-  --foreground: #ffffff;
+  --background: #f8fafc;
+  --foreground: #0f172a;
   --primary: #ff5c00;
   --secondary: #ffb800;
   --accent: #8b5cf6;
-  --muted: #a1a1aa;
-  --border: #27272a;
+  --muted: #64748b;
+  --border: #e2e8f0;
 }
 
 body {
@@ -29,22 +29,30 @@ body {
 
 /* Custom Utilities for Premium Look */
 .glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
 }
 
 .text-gradient {
-  background: linear-gradient(to right, #ff5c00, #ffb800);
+  background: linear-gradient(135deg, #ff5c00, #ffb800);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .glow {
-  box-shadow: 0 0 20px rgba(255, 92, 0, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(255, 92, 0, 0.4);
 }
 
 /* Smooth Transitions */
 * {
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
