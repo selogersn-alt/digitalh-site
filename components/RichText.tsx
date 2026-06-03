@@ -36,7 +36,7 @@ export default function RichText({ content }: { content: any }) {
           )
         }
         if (node.type === 'heading') {
-          const Tag = node.tag as keyof JSX.IntrinsicElements
+          const Tag = node.tag as keyof React.JSX.IntrinsicElements
           return (
             <Tag key={i} className="text-2xl font-bold text-foreground mt-8 mb-4">
               {renderText(node.children)}
