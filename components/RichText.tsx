@@ -7,12 +7,23 @@ export default function RichText({ content }: { content: any }) {
     return children?.map((child: any, j: number) => {
       if (child.type === 'text') {
         let text = <span key={j}>{child.text}</span>
-        if (child.format & 1) text = <strong key={j}>{text}</strong> // Bold
-        if (child.format & 2) text = <em key={j}>{text}</em> // Italic
+        if (child.format & 1) text = <strong key={j}>{text}</strong>
+        if (child.format & 2) text = <em key={j}>{text}</em>
         return text
       }
       return null
     })
+  }
+
+  const renderHeading = (node: any, i: number) => {
+    const cls = "text-2xl font-bold text-foreground mt-8 mb-4"
+    const children = renderText(node.children)
+    if (node.tag === 'h1') return <h1 key={i} className={cls}>{children}</h1>
+    if (node.tag === 'h2') return <h2 key={i} className={cls}>{children}</h2>
+    if (node.tag === 'h3') return <h3 key={i} className={cls}>{children}</h3>
+    if (node.tag === 'h4') return <h4 key={i} className={cls}>{children}</h4>
+    if (node.tag === 'h5') return <h5 key={i} className={cls}>{children}</h5>
+    return <h6 key={i} className={cls}>{children}</h6>
   }
 
   return (
@@ -36,12 +47,7 @@ export default function RichText({ content }: { content: any }) {
           )
         }
         if (node.type === 'heading') {
-          const Tag = node.tag as any
-          return (
-            <Tag key={i} className="text-2xl font-bold text-foreground mt-8 mb-4">
-              {renderText(node.children)}
-            </Tag>
-          )
+          return renderHeading(node, i)
         }
         return null
       })}
