@@ -6,6 +6,8 @@ import Portfolio from '@/components/Portfolio'
 import { ServiceClientWrapper } from '@/components/ServiceClientWrapper'
 import { Metadata } from 'next'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Agence Web & Marketing Digital | DigitalH',
   description: 'L\'agence web de marketing et communication numérique pour les entreprises qui cherchent à développer leur présence digitale.',

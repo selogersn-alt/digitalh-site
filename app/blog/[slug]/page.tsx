@@ -9,6 +9,8 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import RichText from '@/components/RichText'
 import { ServiceClientWrapper as BlogClientWrapper } from '@/components/ServiceClientWrapper'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const payload = await getPayload({ config: await configPromise })

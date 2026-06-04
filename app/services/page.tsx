@@ -2,6 +2,8 @@ import { getPayload } from 'payload'
 import configPromise from '@/payload.config'
 import ServicesList from '@/components/ServicesList'
 
+export const dynamic = 'force-dynamic'
+
 export default async function ServicesPage() {
   const payload = await getPayload({ config: await configPromise })
   const { docs: services } = await payload.find({

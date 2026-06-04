@@ -3,6 +3,8 @@ import configPromise from '@/payload.config'
 import BlogList from '@/components/BlogList'
 import { Metadata } from 'next'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Blog | DigitalH',
   description: 'Actualités, tutoriels et insights sur le monde du digital, de la technologie, du SEO et du marketing par l\'équipe DigitalH.',
