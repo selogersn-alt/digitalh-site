@@ -1,4 +1,5 @@
 import { buildConfig } from 'payload'
+import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -6,16 +7,16 @@ import { fileURLToPath } from 'url'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-// Use PostgreSQL in production (Vercel), SQLite locally
-async function getDbAdapter() {
-  if (process.env.DATABASE_URI && process.env.DATABASE_URI.startsWith('postgresql')) {
-    const { postgresAdapter } = await import('@payloadcms/db-postgres')
-    return postgresAdapter({
-      pool: { connectionString: process.env.DATABASE_URI },
-    })
-  }
-  const { sqliteAdapter } = await import('@payloadcms/db-sqlite')
-  return sqliteAdapter({ client: { url: 'file:./payload.db' } })
+// Select DB adapter: PostgreSQL in production (Vercel), SQLite locally
+const databaseUri = process.env.DATABASE_URI
+
+let dbAdapter: any
+if (databaseUri && databaseUri.startsWith('postgresql')) {
+  // Dynamically import postgres adapter only when needed
+  const { postgresAdapter } = await import('@payloadcms/db-postgres')
+  dbAdapter = postgresAdapter({ pool: { connectionString: databaseUri } })
+} else {
+  dbAdapter = sqliteAdapter({ client: { url: 'file:./payload.db' } })
 }
 
 export default buildConfig({
@@ -97,7 +98,7 @@ export default buildConfig({
   ],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || 'digitalh-secret-123',
-  db: await getDbAdapter(),
+  db: dbAdapter,
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
