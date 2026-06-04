@@ -1,13 +1,12 @@
 # Stage 1: Install dependencies
-FROM node:18-alpine AS deps
-RUN apk add --no-cache libc6-compat python3 make g++
+FROM node:18-bookworm-slim AS deps
 WORKDIR /app
 
 COPY package.json package-lock.json .npmrc ./
 RUN npm ci --legacy-peer-deps
 
 # Stage 2: Rebuild the source code only when needed
-FROM node:18-alpine AS builder
+FROM node:18-bookworm-slim AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -21,7 +20,7 @@ ENV DATABASE_URI="file:./database/build-temp.db"
 RUN npm run build
 
 # Stage 3: Runner
-FROM node:18-alpine AS runner
+FROM node:18-bookworm-slim AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
