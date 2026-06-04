@@ -1,11 +1,22 @@
 import { buildConfig } from 'payload'
-import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+
+// Use PostgreSQL in production (Vercel), SQLite locally
+async function getDbAdapter() {
+  if (process.env.DATABASE_URI && process.env.DATABASE_URI.startsWith('postgresql')) {
+    const { postgresAdapter } = await import('@payloadcms/db-postgres')
+    return postgresAdapter({
+      pool: { connectionString: process.env.DATABASE_URI },
+    })
+  }
+  const { sqliteAdapter } = await import('@payloadcms/db-sqlite')
+  return sqliteAdapter({ client: { url: 'file:./payload.db' } })
+}
 
 export default buildConfig({
   admin: {
@@ -22,11 +33,7 @@ export default buildConfig({
         delete: () => false,
         update: ({ req: { user } }) => {
           if (user?.collection === 'users') {
-            return {
-              id: {
-                equals: user.id,
-              },
-            }
+            return { id: { equals: user.id } }
           }
           return false
         },
@@ -35,9 +42,7 @@ export default buildConfig({
     },
     {
       slug: 'services',
-      admin: {
-        useAsTitle: 'title',
-      },
+      admin: { useAsTitle: 'title' },
       fields: [
         { name: 'title', type: 'text', required: true },
         { name: 'slug', type: 'text', required: true, unique: true },
@@ -49,9 +54,7 @@ export default buildConfig({
     },
     {
       slug: 'posts',
-      admin: {
-        useAsTitle: 'title',
-      },
+      admin: { useAsTitle: 'title' },
       fields: [
         { name: 'title', type: 'text', required: true },
         { name: 'slug', type: 'text', required: true, unique: true },
@@ -66,9 +69,7 @@ export default buildConfig({
     {
       slug: 'media',
       upload: true,
-      fields: [
-        { name: 'alt', type: 'text' },
-      ],
+      fields: [{ name: 'alt', type: 'text' }],
     },
     {
       slug: 'leads',
@@ -81,26 +82,22 @@ export default buildConfig({
         { name: 'email', type: 'email', required: true, label: 'Email' },
         { name: 'service', type: 'text', label: 'Service Souhaité' },
         { name: 'message', type: 'textarea', required: true, label: 'Message' },
-        { 
-          name: 'status', 
-          type: 'select', 
+        {
+          name: 'status',
+          type: 'select',
           defaultValue: 'nouveau',
           options: [
             { label: 'Nouveau', value: 'nouveau' },
             { label: 'Contacté', value: 'contacte' },
-            { label: 'Clos', value: 'clos' }
-          ]
+            { label: 'Clos', value: 'clos' },
+          ],
         },
       ],
     },
   ],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || 'digitalh-secret-123',
-  db: sqliteAdapter({
-    client: {
-      url: 'file:./payload.db',
-    },
-  }),
+  db: await getDbAdapter(),
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
