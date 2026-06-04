@@ -8,13 +8,16 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 // Select DB adapter: PostgreSQL in production (Vercel), SQLite locally
-const databaseUri = process.env.DATABASE_URI
+const databaseUri = process.env.DATABASE_URI || process.env.POSTGRES_URL
 
 let dbAdapter: any
 if (databaseUri && databaseUri.startsWith('postgresql')) {
   // Dynamically import postgres adapter only when needed
   const { postgresAdapter } = await import('@payloadcms/db-postgres')
-  dbAdapter = postgresAdapter({ pool: { connectionString: databaseUri } })
+  dbAdapter = postgresAdapter({
+    pool: { connectionString: databaseUri },
+    push: true, // Auto-push schema to database in production (no migrations needed)
+  })
 } else {
   dbAdapter = sqliteAdapter({ client: { url: 'file:./payload.db' } })
 }

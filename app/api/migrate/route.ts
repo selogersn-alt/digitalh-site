@@ -12,6 +12,14 @@ export async function GET() {
 
     // Import Services
     for (const service of services) {
+      const existing = await payload.find({
+        collection: 'services',
+        where: { slug: { equals: service.slug } }
+      })
+      if (existing.docs.length > 0) {
+        console.log(`Service ${service.slug} already exists, skipping`)
+        continue
+      }
       await payload.create({
         collection: 'services',
         data: {
@@ -40,6 +48,14 @@ export async function GET() {
 
     // Import Posts
     for (const post of posts) {
+      const existing = await payload.find({
+        collection: 'posts',
+        where: { slug: { equals: post.slug } }
+      })
+      if (existing.docs.length > 0) {
+        console.log(`Post ${post.slug} already exists, skipping`)
+        continue
+      }
       await payload.create({
         collection: 'posts',
         data: {
