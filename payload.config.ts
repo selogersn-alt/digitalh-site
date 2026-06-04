@@ -11,7 +11,7 @@ const dirname = path.dirname(filename)
 const databaseUri = process.env.DATABASE_URI || process.env.POSTGRES_URL
 
 let dbAdapter: any
-if (databaseUri && databaseUri.startsWith('postgresql')) {
+if (databaseUri && databaseUri.startsWith('postgres')) {
   // Dynamically import postgres adapter only when needed
   const { postgresAdapter } = await import('@payloadcms/db-postgres')
   dbAdapter = postgresAdapter({
