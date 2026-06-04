@@ -19,7 +19,7 @@ if (databaseUri && databaseUri.startsWith('postgres')) {
     push: true, // Auto-push schema to database in production (no migrations needed)
   })
 } else {
-  dbAdapter = sqliteAdapter({ client: { url: 'file:./payload.db' } })
+  dbAdapter = sqliteAdapter({ client: { url: 'file:./database/payload.db' } })
 }
 
 export default buildConfig({

@@ -1,0 +1,3 @@
+digitalh.net, www.digitalh.net {
+    reverse_proxy web:3000
+}
