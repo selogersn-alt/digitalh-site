@@ -39,7 +39,7 @@ async function importData() {
         },
       })
       console.log(`✅ Service imported: ${service.slug}`)
-    } catch (err) {
+    } catch (err: any) {
       console.error(`❌ Error importing service ${service.slug}:`, err.message)
     }
   }
@@ -77,7 +77,7 @@ async function importData() {
         },
       })
       console.log(`✅ Post imported: ${post.slug}`)
-    } catch (err) {
+    } catch (err: any) {
       console.error(`❌ Error importing post ${post.slug}:`, err.message)
     }
   }
